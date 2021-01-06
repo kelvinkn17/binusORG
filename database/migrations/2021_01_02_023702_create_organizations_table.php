@@ -17,6 +17,7 @@ class CreateOrganizationsTable extends Migration
             $table->id();
             $table->timestamps();
 
+            $table->string('name');
             $table->string('photo');
             $table->string('banner_photo');
             $table->longText('description');

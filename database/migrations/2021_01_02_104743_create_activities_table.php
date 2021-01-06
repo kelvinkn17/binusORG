@@ -17,10 +17,10 @@ class CreateActivitiesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('organization_id');
-
+            $table->string('organization_name');
             $table->string('activity');
             $table->string('location');
-            $table->dateTime('timeAndDate');
+            $table->string('timeAndDate');
 
         });
 

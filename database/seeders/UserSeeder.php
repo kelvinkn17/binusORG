@@ -25,6 +25,28 @@ class UserSeeder extends Seeder
                 'gender' => 'Male',
                 'organization_admin_id' => '1'
             ],
+
+            [
+                'name' => 'BNCC ADMIN',
+                'email' => 'bnccadmin@gmail.com',
+                'is_admin' => 1,
+                'password' => Hash::make('bnccadmin'),
+                'NIM' => 'bnccadmin',
+                'phone_number' => 'bnccadmin',
+                'gender' => 'Male',
+                'organization_admin_id' => '2'
+            ],
+
+            [
+                'name' => 'BPRENEUR ADMIN',
+                'email' => 'bpreneuradmin@gmail.com',
+                'is_admin' => 1,
+                'password' => Hash::make('bpreneuradmin'),
+                'NIM' => 'bpreneuradmin',
+                'phone_number' => 'bpreneuradmin',
+                'gender' => 'Male',
+                'organization_admin_id' => '3'
+            ],
         ]);
     }
 }

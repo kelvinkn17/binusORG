@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class activity extends Model
 {
-    use HasFactory;
+    public $fillable = ['organization_id', 'activity', 'location', 'timeAndDate'];
 }

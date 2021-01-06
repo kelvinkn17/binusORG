@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('organization_id');
 
+            $table->string('name');
             $table->string('thumbnail');
             $table->string('title')->unique();
             $table->string('location');

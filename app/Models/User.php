@@ -22,6 +22,7 @@ class User extends Authenticatable
         'password',
         'NIM',
         'is_admin',
+        'phone_number',
         'gender',
         'organization_admin_id'
     ];

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BinusORG</title>
 
+    @include('app.script')
     @include('app.style')
 </head>
 
@@ -34,28 +35,30 @@
                     <nav class="navbar navbar-expand-lg ">
                         @guest
                         <a class="navbar-brand" href="{{ route('home') }}">
-                            <strong>BinusORG</strong>
+                            <img src="/images/binusorg.png" alt="">
                         </a>
                         @else
                         <?php $role = Auth::user()->is_admin; ?>
                         @if($role == 1)
                         <a class="navbar-brand" href="{{ route('admin.home') }}">
-                            <strong>BinusORG Admin</strong>
+                            <img src="/images/binusorg.png" alt=""> <strong>for Admin</strong>
                         </a>
                         @elseif($role == 0)
                         <a class="navbar-brand" href="{{ route('home') }}">
-                            <strong>BinusORG User</strong>
+                            <img src="/images/binusorg.png" alt="">
                         </a>
                         @endif
                         @endguest
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                            <span class="navbar-toggler-icon"></span>
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
                         </button>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
@@ -72,6 +75,15 @@
                                 </li>
                                 @endif
                                 @else
+
+                                @if($role == 1)
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.membership') }}">Keanggotaan</a>
+                                </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.organization') }}">Organisasi</a>
+                                </li>
+
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -90,6 +102,30 @@
                                         </form>
                                     </div>
                                 </li>
+                                @elseif($role==0)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('organization') }}">Organisasi</a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                                @endif
                                 @endguest
                             </ul>
                         </div>
@@ -104,7 +140,6 @@
         </main>
     </div>
 
-    @include('app.script')
 </body>
 
 </html>

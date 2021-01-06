@@ -40,7 +40,24 @@
 
 .eventCard {
     margin: 8px !important;
-    width: 20rem;
+    width: 19rem;
+}
+
+.organizationCard {
+    margin: 8px !important;
+    width: 90vw;
+}
+
+.organization-desc {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.organizationImage img {
+    margin-left: -12px;
+    max-width: 14rem;
+    height: 100%;
+    object-fit: cover;
 }
 
 .spacer {
@@ -49,4 +66,17 @@
 
 .dropdown-item {
     padding: .25rem 1rem !important;
+}
+
+.btn-primary,
+.btn-warning,
+.btn-outline-primary {
+    padding: 0.5rem 4rem;
+    margin-bottom: 0.5rem;
+}
+
+th,
+td {
+    text-align: center;
+    vertical-align: middle;
 }
